@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, Pressable} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import {router} from "expo-router";
 
 export default function RegisterScreen() {
     return (
@@ -38,12 +39,16 @@ export default function RegisterScreen() {
             </TouchableOpacity>
 
             {/* Already have an account */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                console.log('Existing account pressed');
+                router.push('/login')
+            }}>
                 <Text style={styles.alreadyAccount}>Already have an account</Text>
             </TouchableOpacity>
 
             {/* Social Login */}
             <Text style={styles.continueText}>Or continue with</Text>
+
             <View style={styles.socialContainer}>
                 <TouchableOpacity style={styles.socialButton}>
                     <FontAwesome name="google" size={24} color="#DB4437" />

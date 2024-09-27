@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { router } from "expo-router";
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -35,7 +36,10 @@ const LoginScreen = () => {
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Sign in</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => console.log('Create Account Pressed')}>
+            <TouchableOpacity onPress={() => {
+                console.log('Create Account Pressed')
+                router.push('/register')
+            }}>
                 <Text style={styles.createAccount}>Create new account</Text>
             </TouchableOpacity>
             <Text style={styles.orContinue}>Or continue with</Text>
